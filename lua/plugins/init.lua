@@ -61,5 +61,8 @@ return {
         "prettier",
       },
     },
+
+    -- Automatic installation but it did not work
+    -- automatic_installation = true,
   },
 }
