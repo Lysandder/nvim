@@ -2,7 +2,7 @@ return {
   {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save
-    opts = require("configs.conform")
+    opts = require("configs.conform"),
   },
 
   -- New lspconfig
@@ -39,7 +39,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
-        require("configs.treesitter")
+      require("configs.treesitter")
     end,
   },
 
@@ -65,4 +65,13 @@ return {
     -- Automatic installation but it did not work
     -- automatic_installation = true,
   },
+
+  -- Linting
+  -- {
+  --   "mfussenegger/nvim-lint",
+  --   event = { "BufReadPre", "BufNewFile" },
+  --   config = function()
+  --     require("configs.lint")
+  --   end,
+  -- },
 }
