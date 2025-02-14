@@ -80,9 +80,19 @@ return {
     "kylechui/nvim-surround",
     -- version = "*", -- Use for stability; omit to use `main` branch for the latest features
     -- event = "VeryLazy",
-    lazy = false,
+    lazy = false, -- Load immediately instead of lazy-loading
     config = function()
       require("nvim-surround").setup({}) -- Configuration here, or leave empty to use defaults
+    end,
+  },
+
+  -- nvim-ufo folding
+  {
+    "kevinhwang91/nvim-ufo",
+    dependencies = { "kevinhwang91/promise-async" }, -- Ensure dependency is installed
+    lazy = false, -- Load immediately instead of lazy-loading
+    config = function()
+      require("ufo").setup({})
     end,
   },
 }
