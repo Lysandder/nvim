@@ -14,7 +14,7 @@ M.base46 = {
 	-- },
 }
 
-vim.o.scrolloff = 10
+vim.o.scrolloff = 15
 
 -- M.nvdash = { load_on_startup = true }
 -- M.ui = {
