@@ -1,3 +1,4 @@
+local lazy = require("lazy")
 return {
   {
     "stevearc/conform.nvim",
@@ -93,6 +94,37 @@ return {
     lazy = false, -- Load immediately instead of lazy-loading
     config = function()
       require("ufo").setup({})
+    end,
+  },
+
+  -- emmet-ls
+  {
+    "aca/emmet-ls",
+    lazy = false,
+    config = function()
+      local lspconfig = require("lspconfig")
+      local nvlsp = require("nvchad.configs.lspconfig")
+
+      lspconfig.emmet_ls.setup({
+        -- on_attach = nvlsp.on_attach,
+        capabilities = nvlsp.capabilities,
+        filetypes = {
+          "html",
+          "css",
+          "javascript",
+          "javascriptreact",
+          "typescriptreact",
+          "vue",
+        },
+        init_options = {
+          html = {
+            options = {
+              -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+              ["bem.enabled"] = true,
+            },
+          },
+        },
+      })
     end,
   },
 }
