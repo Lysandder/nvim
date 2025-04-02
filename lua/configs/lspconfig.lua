@@ -44,6 +44,14 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.bo.expandtab = true -- Use spaces instead of tabs
   end,
 })
+
+vim.diagnostic.config({
+  virtual_text = false,  -- Disable inline text
+  signs = true,          -- Keep the sign column with icons
+  underline = true,      -- Keep underlines for errors/warnings
+  update_in_insert = false,
+})
+
 -- To change indentation size in autopep8 I had to create a file ~/.config/pep8 and write in it:
 -- [pep8]
 -- indent-size = 2
