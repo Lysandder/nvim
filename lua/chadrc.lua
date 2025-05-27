@@ -14,7 +14,22 @@ M.base46 = {
 	-- },
 }
 
-vim.o.scrolloff = 15
+-- vim.o.scrolloff = 15
+local function update_scrolloff()
+  local win_height = vim.api.nvim_win_get_height(0)
+  local percent = 0.3
+  local scrolloff = math.floor(win_height * percent)
+
+  -- Optional: clamp between 3 and 15
+  scrolloff = math.max(3, math.min(scrolloff, 15))
+
+  vim.opt.scrolloff = scrolloff
+end
+
+-- Update scrolloff on events that might change window height
+vim.api.nvim_create_autocmd({ "VimResized", "WinEnter", "WinNew", "WinResized", "BufEnter" }, {
+  callback = update_scrolloff,
+})
 
 -- M.nvdash = { load_on_startup = true }
 -- M.ui = {
