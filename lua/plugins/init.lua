@@ -55,6 +55,7 @@ return {
         "css-lsp",
         "pyright",
         "ts_ls",
+        "clangd",
 
         -- Formatters
         -- "black",
