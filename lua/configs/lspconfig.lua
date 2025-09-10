@@ -5,12 +5,12 @@ local lspconfig = require("lspconfig")
 
 -- EXAMPLE
 local servers = {
-  -- "lua_ls",
-  "html",
+  "clangd",
   "cssls",
+  "html",
+  -- "lua_ls",
   "pyright",
   "ts_ls",
-  "clangd",
 }
 
 local nvlsp = require("nvchad.configs.lspconfig")
@@ -28,14 +28,14 @@ end
 -- With filetypes specified
 vim.api.nvim_create_autocmd("FileType", {
   pattern = {
-    "html",
+    "c",
+    "cpp",
     "css",
-    "python",
-    "typescript",
+    "html",
     "javascript",
     "lua",
-    "cpp",
-    "c",
+    "python",
+    "typescript",
   },
 
   callback = function()
