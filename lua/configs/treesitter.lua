@@ -7,6 +7,7 @@ local options = {
     "csv",
     "dart",
     "html",
+    "java",
     "javascript",
     "json",
     "lua",
