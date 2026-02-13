@@ -1,5 +1,13 @@
 local lazy = require("lazy")
 return {
+  -- Show gitignored files too
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = function(_, opts)
+      opts.filters.git_ignored = false
+    end,
+  },
+
   {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save
