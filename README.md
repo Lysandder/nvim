@@ -17,7 +17,7 @@ Run `:MasonInstallAll` to install all the LSPs and Formatters
 ---
 
 ### autopep8 python formatter
-Besides the nvim folder located at: 
+Besides the nvim directory located at: 
 
 `~/.config/nvim/`
 
