@@ -26,25 +26,25 @@ end
 
 -- Ensure Neovim enforces 2-space indentation for all buffers
 -- With filetypes specified
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = {
-    "c",
-    "cpp",
-    "css",
-    "html",
-    "javascript",
-    "lua",
-    "python",
-    "typescript",
-  },
-
-  callback = function()
-    vim.bo.tabstop = 2
-    vim.bo.shiftwidth = 2
-    vim.bo.softtabstop = 2
-    vim.bo.expandtab = true -- Use spaces instead of tabs
-  end,
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = {
+--     "c",
+--     "cpp",
+--     "css",
+--     "html",
+--     "javascript",
+--     "lua",
+--     "python",
+--     "typescript",
+--   },
+--
+--   callback = function()
+--     vim.bo.tabstop = 2
+--     vim.bo.shiftwidth = 2
+--     vim.bo.softtabstop = 2
+--     vim.bo.expandtab = true -- Use spaces instead of tabs
+--   end,
+-- })
 
 vim.diagnostic.config({
   virtual_text = false,  -- Disable inline text
