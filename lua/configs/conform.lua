@@ -2,6 +2,7 @@ local options = {
   formatters_by_ft = {
     css = { "prettier" },
     html = { "prettier" },
+    java = { "google-java-format" },
     lua = { "stylua" },
     python = { "autopep8" },
   },

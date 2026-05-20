@@ -64,11 +64,13 @@ return {
         "pyright",
         "ts_ls",
         "clangd",
+        -- "jdtls",
 
         -- Formatters
         -- "black",
         "autopep8",
         "prettier",
+        "google-java-format",
       },
     },
 
@@ -135,5 +137,10 @@ return {
         },
       })
     end,
+  },
+
+  {
+    "mfussenegger/nvim-jdtls",
+    ft = "java",  -- only loads when you open a .java file
   },
 }

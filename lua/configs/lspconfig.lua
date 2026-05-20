@@ -32,6 +32,7 @@ vim.api.nvim_create_autocmd("FileType", {
     "cpp",
     "css",
     "html",
+    "java",
     "javascript",
     -- "lua",
     "python",

@@ -14,6 +14,8 @@ Open using `nvim` command
 
 Run `:MasonInstallAll` to install all the LSPs and Formatters
 
+Also have to preinstall `jdtls` using `brew`. (Need to fix it later)
+
 ---
 
 ### autopep8 python formatter
