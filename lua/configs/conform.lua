@@ -5,6 +5,7 @@ local options = {
     java = { "google-java-format" },
     lua = { "stylua" },
     python = { "autopep8" },
+    cpp = { "clangd" },
   },
 
   -- format_on_save = {
