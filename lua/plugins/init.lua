@@ -27,6 +27,7 @@ return {
   -- Standard lspconfig
   {
     "neovim/nvim-lspconfig",
+    commit = "c646154d6e4db9b2979eeb517d0b817ad00c9c47", -- old version because some parts that i use are depricated in the newer versions
     config = function()
       require("configs.lspconfig")
     end,
@@ -71,12 +72,70 @@ return {
         "autopep8",
         "prettier",
         "google-java-format",
+
+        -- cpp debugger
+        "codelldb",
       },
     },
 
     -- Automatic installation but it did not work
     -- automatic_installation = true,
   },
+
+  -- C++ debugging
+  {
+    "mfussenegger/nvim-dap",
+    config = function()
+      require("configs.dap")
+    end,
+
+    keys = {
+      { "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
+      { "<leader>dr", function() require("dap").continue() end, desc = "Continue" },
+      { "<leader>dc", function() require("dap").terminate() end, desc = "Terminate Debugger" },
+    },
+  },
+
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    event="VeryLazy",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "mfussenegger/nvim-dap",
+    },
+    opts = {
+      ensure_installed = { "codelldb" },
+      automatic_installation = true,
+      handlers = {}
+    },
+  },
+
+  {
+    "rcarriga/nvim-dap-ui",
+    event = "VeryLazy",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function ()
+      local dap, dapui = require("dap"), require("dapui")
+      dapui.setup() 
+      dap.listeners.before.attach.dapui_config = function()
+        dapui.open()
+      end
+      dap.listeners.before.launch.dapui_config = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated.dapui_config = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited.dapui_config = function()
+        dapui.close()
+      end
+    end
+  },
+
+  {
+    "nvim-neotest/nvim-nio",
+  },
+  -- C++ debugging END
 
   -- Linting
   -- {

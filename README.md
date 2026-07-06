@@ -34,3 +34,38 @@ indent-size = 2
 ```
 
 This changes the indentation size used by autopep8 from 4 spaces to 2 spaces. However, it **does not** affect the continuation (hanging) indentation. As a result, constructs such as multiline dictionaries, lists, or function arguments will still be indented with 4 spaces, because this behavior is fixed in autopep8 according to PEP 8. (Maybe I will switch to another formatter in the future)
+
+---
+
+### C++ formatter configuration
+
+Need to create a `.clang-format` file, somewhere in the parent directory of the project. This file contains continuation for the clangd formatter. In my case, I just put it in the home directory and filled with:
+```
+BasedOnStyle: LLVM
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+```
+
+Also, there are ways to specify the formatting style:
+
+```GNU-style
+if (something)
+{
+    cout << "something";
+}
+else
+{
+    cout << "something else";
+}
+```
+
+OR
+
+```Google-style
+if (something) {
+    cout << "something";
+} else {
+    cout << "something else";
+}
+```
