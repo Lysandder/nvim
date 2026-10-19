@@ -54,6 +54,8 @@ vim.diagnostic.config({
   update_in_insert = false,
 })
 
+require("gitsigns").setup({ signcolumn = false, numhl = true })
+
 -- To change indentation size in autopep8 I had to create a file ~/.config/pep8 and write in it:
 -- [pep8]
 -- indent-size = 2
