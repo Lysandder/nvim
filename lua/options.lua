@@ -7,6 +7,10 @@ if not vim.env.SDKROOT or vim.env.SDKROOT == "" then
   end
 end
 
+require("luasnip.loaders.from_lua").lazy_load({
+  paths = vim.fn.stdpath("config") .. "/lua_snippets",
+})
+
 -- add yours here!
 
 -- local o = vim.o
