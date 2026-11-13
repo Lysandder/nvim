@@ -5,7 +5,7 @@ local lspconfig = require("lspconfig")
 
 -- EXAMPLE
 local servers = {
-  "clangd",
+  -- "clangd",
   "cssls",
   "html",
   -- "lua_ls",
@@ -23,6 +23,20 @@ for _, lsp in ipairs(servers) do
     capabilities = nvlsp.capabilities,
   })
 end
+
+lspconfig.clangd.setup({
+  on_attach = function(client, bufnr)
+    client.server_capabilities.signatureHelpProvider = false
+    nvlsp.on_attach(client, bufnr)
+  end,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+  cmd = {
+    "clangd",
+    "--background-index",
+    "--query-driver=/opt/homebrew/**/g++-*",
+  },
+})
 
 -- Ensure Neovim enforces 4-space indentation for all buffers
 -- With filetypes specified

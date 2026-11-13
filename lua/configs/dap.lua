@@ -10,13 +10,40 @@ dap.adapters.codelldb = {
   },
 }
 
+-- dap.configurations.cpp = {
+--   {
+--     name = "Launch",
+--     type = "codelldb",
+--     request = "launch",
+--     program = function()
+--       return vim.fn.input("Executable: ", vim.fn.getcwd() .. "/", "file")
+--     end,
+--     cwd = "${workspaceFolder}",
+--     stopOnEntry = false,
+--   },
+-- }
+
 dap.configurations.cpp = {
   {
-    name = "Launch",
+    name = "Launch (type input in terminal)",
     type = "codelldb",
     request = "launch",
     program = function()
       return vim.fn.input("Executable: ", vim.fn.getcwd() .. "/", "file")
+    end,
+    cwd = "${workspaceFolder}",
+    stopOnEntry = false,
+    terminal = "integrated",
+  },
+  {
+    name = "Launch (input from file)",
+    type = "codelldb",
+    request = "launch",
+    program = function()
+      return vim.fn.input("Executable: ", vim.fn.getcwd() .. "/", "file")
+    end,
+    stdio = function()
+      return { vim.fn.input("Input file: ", vim.fn.getcwd() .. "/", "file"), nil, nil }
     end,
     cwd = "${workspaceFolder}",
     stopOnEntry = false,

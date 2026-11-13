@@ -10,7 +10,6 @@ map("t", "<Esc>", [[<C-\><C-n>]], { noremap = true, silent = true })
 map("n", "<leader>t", ":startinsert!<CR>", { noremap = true, silent = true })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
-
 -- Open diagnostics - shows all lines with problems
 vim.keymap.set("n", "<leader>fd", "<cmd>Telescope diagnostics bufnr=0<cr>", { desc = "File diagnostics" })
 vim.keymap.set("n", "<leader>fD", "<cmd>Telescope diagnostics<cr>", { desc = "All diagnostics" })
@@ -46,3 +45,11 @@ map("n", "<leader>v", function()
   vim.wo.relativenumber = false
   vim.wo.signcolumn = "no"
 end, { desc = "Open vertical zsh terminal without VIRTUAL_ENV" })
+
+map("n", "<leader>r", function()
+  vim.cmd("w")
+  local file = vim.fn.expand("%:p")
+  local out = vim.fn.expand("%:p:r") .. ".out"
+  vim.cmd("vsplit term://g++-16 -std=c++23 -O2 -Wall -Wextra '" .. file .. "' -o '" .. out .. "' && '" .. out .. "'")
+  vim.cmd("startinsert")
+end, { desc = "Compile and run C++" })
