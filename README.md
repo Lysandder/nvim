@@ -37,6 +37,19 @@ This changes the indentation size used by autopep8 from 4 spaces to 2 spaces. Ho
 
 ---
 
+### For C++ lSP
+
+In `/Users/abdulaziz/Library/Preferences/clangd/config.yaml`
+Gotta write:
+<pre>
+CompileFlags:
+  Compiler: /opt/homebrew/bin/g++-16
+  Add: [-std=c++23, -Wall, -Wextra]
+</pre>
+In order to make LSP imitate GCC.
+
+---
+
 ### C++ formatter configuration
 
 Need to create a `.clang-format` file, somewhere in the parent directory of the project. This file contains continuation for the clangd formatter. In my case, I just put it in the home directory and filled with:
